@@ -21,8 +21,4 @@ router.post('/create',
  authMiddleware, adminMiddleware, 
  userController.create)
 
-// router.delete('/delete/:id([0-9]+)', 
-// authMiddleware, 
-// adminMiddleware, userController.delete)
-
 module.exports = router

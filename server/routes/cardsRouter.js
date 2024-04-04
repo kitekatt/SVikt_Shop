@@ -21,11 +21,6 @@ router.post('/create',
 //  authMiddleware, adminMiddleware,
  cardsController.create)
 
-// //обновить товар (ТОЛЬКО ДЛЯ АДМИНИСТРАТОРА)
-// router.put('/update/:id([0-9]+)', 
-// /*authMiddleware, adminMiddleware,*/ 
-// cardsController.update)
-
 //удалить товар (ТОЛЬКО ДЛЯ АДМИНИСТРАТОРА)
 router.delete('/delete/:id([0-9]+)',
 //  authMiddleware, adminMiddleware,
