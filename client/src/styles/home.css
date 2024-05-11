@@ -143,9 +143,7 @@
 .about_me_text {
    text-align: justify;
    font-size: 25px;
-   padding-top: 5px;
-   padding-left: 5px;
-   padding-right: 5px;
+   padding: 20px;
 
 }
 
@@ -268,6 +266,9 @@
 .CardBtn:hover{
    background: darkgoldenrod;
    color: white;
+}
+.title-description{
+   padding-left: 15px;
 }
 
 

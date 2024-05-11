@@ -26,11 +26,9 @@ const getSearchParams = (searchParams) => {
 
 const Shop = observer(() => {
     const { catalog } = useContext(AppContext)
-
     const [categoriesFetching, setCategoriesFetching] = useState(true)
     const [typesFetching, setTypesFetching] = useState(true)
     const [cardsFetching, setCardsFetching] = useState(true)
-
     const location = useLocation()
     const [searchParams] = useSearchParams()
 
@@ -38,16 +36,13 @@ const Shop = observer(() => {
         fetchCategories()
             .then(data => catalog.categories = data)
             .finally(() => setCategoriesFetching(false))
-
         fetchTypes()
             .then(data => catalog.types = data)
             .finally(() => setTypesFetching(false))
-
         const { category, type, page } = getSearchParams(searchParams)
         catalog.category = category
         catalog.type = type
         catalog.page = page ?? 1
-
         fetchAllCards(catalog.category, catalog.type, catalog.page, catalog.limit)
             .then(data => {
                 catalog.cards = data.rows
@@ -55,13 +50,11 @@ const Shop = observer(() => {
             })
             .finally(() => setCardsFetching(false))
     }, [])
-
-    // При каждом клике на категорию, бренд или номер страницы — мы добавляем элемент в историю
+    // При каждом клике на категорию, тип или номер страницы —  добавляется элемент в историю
     // браузера, ссылки в истории имеют вид /?page=1, /?page=2, /?page=3. При нажатии кнопки 
-    // «Назад» браузера — мы отслеживаем изменение GET-параметров и изменяем состояние хранилища.
+    // «Назад» браузера — отслеживает изменение GET-параметров и изменяем состояние хранилища.
     useEffect(() => {
         const { category, type, page } = getSearchParams(searchParams)
-
         if (category || type || page) {
             if (category !== catalog.category) {
                 catalog.category = category
@@ -78,9 +71,8 @@ const Shop = observer(() => {
             catalog.page = 1
         }
     }, [location.search])
-
-    // при клике на категорию, бренд, номер страницы или при нажатии кнопки  «Назад» 
-    // браузера — получам с сервера список товаров, потому что это уже другой список
+    // при клике на категорию, тип, номер страницы или при нажатии кнопки  «Назад» 
+    // браузера — получает с сервера список товаров (т.к. это уже другой список)
     useEffect(() => {
         setCardsFetching(true)
         fetchAllCards(catalog.category, catalog.type, catalog.page, catalog.limit)
@@ -90,7 +82,6 @@ const Shop = observer(() => {
             })
             .finally(() => setCardsFetching(false))
     }, [catalog.category, catalog.type, catalog.page])
-
     return (
         <div className="body-bg">
             <Container>

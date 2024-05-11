@@ -27,12 +27,10 @@ const CreateCard = (props) => {
 
     // выбранное для загрузки изображение товара
     const [image, setImage] = useState(null)
-
-    // список категорий и список брендов для возможности выбора
+    // список категорий и список типив для возможности выбора
     const [categories, setCategories] = useState(null)
     const [types, setTypes] = useState(null)
-
-    // нужно получить с сервера список категорий и список брендов
+    // получение с сервера список категорий и список типов
     useEffect(() => {
         fetchCategories()
             .then(
@@ -43,28 +41,20 @@ const CreateCard = (props) => {
                 data => setTypes(data)
             )
     }, [])
-
     const handleInputChange = (event) => {
         const data = {...value, [event.target.name]: event.target.value}
         setValue(data)
         setValid(isValid(data))
     }
-
     const handleImageChange = (event) => {
         setImage(event.target.files[0])
     }
-
     const handleSubmit = (event) => {
         event.preventDefault()
-
-        /*
-         * setValid не изменяет значение состояния мгновенно. Вызов функции лишь означает — React
-         * «принял к сведению» наше сообщение, что состояние нужно изменить.
-         */
         const correct = isValid(value)
         setValid(correct)
 
-        // все поля формы прошли проверку, можно отправлять данные на сервер
+        // если все поля формы прошли проверку - отправляет данные на сервер
         if (correct.name && correct.price && correct.description && correct.category && correct.type) {
 
             const data = new FormData()
@@ -78,14 +68,13 @@ const CreateCard = (props) => {
             createCard(data)
                 .then(
                     data => {
-                        // приводим форму в изначальное состояние
+                        // приводит форму в изначальное состояние
                         event.target.image.value = ''
                         setValue(defaultValue)
                         setValid(defaultValid)
 
-                        // закрываем модальное окно создания товара
+                        // закрывает модальное окно
                         setShow(false)
-                        // изменяем состояние компонента списка товаров
                         setChange(state => !state)
                     }
                 )

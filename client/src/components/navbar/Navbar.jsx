@@ -13,7 +13,7 @@ import headerIco from '../../image/header-img/sviktIco.png'
 import { logout } from '../../http/userApi'
 
 const Navbar = observer(() => {
-   const { user, bascet } = useContext(AppContext)
+   const { user } = useContext(AppContext)
 
    const handleLogout = (event) => {
       logout()

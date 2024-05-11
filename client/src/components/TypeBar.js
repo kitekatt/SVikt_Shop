@@ -7,14 +7,13 @@ import { useNavigate, createSearchParams } from 'react-router-dom'
 const TypeBar = observer(() => {
     const { catalog } = useContext(AppContext)
     const navigate = useNavigate()
-
     const handleClick = (id) => {
         if (id === catalog.type) {
             catalog.type = null
         } else {
             catalog.type = id
         }
-        // при каждом клике добавляем в историю браузера новый элемент
+        // при каждом клике добавляет в историю браузера новый элемент
         const params = {}
         if (catalog.category) params.category = catalog.category
         if (catalog.type) params.type = catalog.type

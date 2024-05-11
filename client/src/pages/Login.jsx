@@ -10,12 +10,6 @@ const Login = observer(() => {
     const { user } = useContext(AppContext)
     const navigate = useNavigate()
 
-    // если пользователь авторизован — ему здесь делать нечего
-    useEffect(() => {
-        if (user.isAdmin) navigate('/', {replace: true})
-        if (user.isAuth) navigate('/', {replace: true})
-    }, [])
-
     const handleSubmit = async (event) => {
         event.preventDefault()
         const email = event.target.email.value.trim()

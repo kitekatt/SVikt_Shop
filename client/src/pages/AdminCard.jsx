@@ -4,7 +4,7 @@ import { Button, Container, Spinner, Table, Pagination } from 'react-bootstrap'
 import CreateCard from '../components/CreateCard.js'
 import '../styles/AdminPanel.css'
 
-// количество товаров на страницу
+// количество отображаемых товаров на страницe
 const ADMIN_PER_PAGE = 6
 
 const AdminCards = () => {
@@ -13,8 +13,6 @@ const AdminCards = () => {
    const [createShow, setCreateShow] = useState(false) // модальное окно создания товара
    // для обновления списка после добавления, редактирования, удаления — изменяем состояние
    const [change, setChange] = useState(false)
-   // id товара, который будем редактировать — для передачи в <UpdateProduct id={…} />
-   const [product, setProduct] = useState(null)
 
    // текущая страница списка товаров
    const [currentPage, setCurrentPage] = useState(1)
@@ -46,8 +44,8 @@ const AdminCards = () => {
       deleteCard(id)
           .then(
               data => {
-                  // если это последняя страница и мы удаляем на ней единственный
-                  // оставшийся товар — то надо перейти к предыдущей странице
+                  // если это последняя страница - удаляется единственный
+                  // оставшийся товар. затем производится переход к предыдущей странице
                   if (totalPages > 1 && cards.length === 1 && currentPage === totalPages) {
                       setCurrentPage(currentPage - 1)
                   } else {

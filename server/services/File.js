@@ -1,8 +1,7 @@
 const uuid = require('uuid')
 const path = require('path')
-
 const fs = require('fs');
-
+//для статики
 class File {
     save(file) {
         if (!file) return null

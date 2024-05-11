@@ -32,20 +32,6 @@ class TypeController {
            next(ApiError.badRequest(e.message))
        }
    }
-   async update(req, res, next) {
-       try {
-           if (!req.params.id) {
-               throw new Error('Не указан id типа')
-           }
-           if (!req.body.name) {
-               throw new Error('Нет названия типа')
-           }
-           const type = await TypeModel.update(req.params.id, req.body)
-           res.json(type)
-       } catch(e) {
-           next(ApiError.badRequest(e.message))
-       }
-   }
    async delete(req, res, next) {
        try {
            if (!req.params.id) {

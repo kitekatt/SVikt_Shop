@@ -19,8 +19,7 @@ app.use(cookieParser(process.env.SECRET_KEY))
 app.use(fileupload()) //для загрузки файлов
 app.use(express.static('static')) //для загрузки статиков
 app.use('/api', router) //все маршруты
-
-app.use(ErrorHandlingMiddleware) //обработчик ошибок ошибок
+app.use(ErrorHandlingMiddleware) //обработчик ошибок ошибок (ЗАМЫКАЮЩИЙ middleware)
 
 //middleware, позволяющий оброщаться клиенту с одного сервера на другой без разрешения
 //со стороны домена

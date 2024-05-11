@@ -14,7 +14,7 @@ const CategoryBar = observer(() => {
         } else {
             catalog.category = id
         }
-        // при каждом клике добавляем в историю браузера новый элемент
+        // при каждом клике добавляет в историю браузера новый элемент
         const params = {}
         if (catalog.category) params.category = catalog.category
         if (catalog.brand) params.brand = catalog.brand

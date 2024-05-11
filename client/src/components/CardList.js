@@ -8,10 +8,9 @@ import { useNavigate, createSearchParams } from 'react-router-dom'
 const CardList = observer(() => {
     const { catalog } = useContext(AppContext)
     const navigate = useNavigate()
-
     const handleClick = (page) => {
         catalog.page = page
-        // при каждом клике добавляем в историю браузера новый элемент
+        // при каждом клике добавляет в историю браузера новый элемент
         const params = {}
         if (catalog.category) params.category = catalog.category
         if (catalog.type) params.type = catalog.type
@@ -21,7 +20,6 @@ const CardList = observer(() => {
             search: '?' + createSearchParams(params),
         })
     }
-
     const pages = []
     for (let page = 1; page <= catalog.pages; page++) {
         pages.push(

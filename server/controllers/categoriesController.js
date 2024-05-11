@@ -32,20 +32,6 @@ class CategoriesController {
            next(ApiError.badRequest(e.message))
        }
    }
-   async update(req, res, next) {
-       try {
-           if (!req.params.id) {
-               throw new Error('Не указан id категории')
-           }
-           if (!req.body.name) {
-               throw new Error('Нет названия категории')
-           }
-           const category = await CategoryModel.update(req.params.id, req.body)
-           res.json(category)
-       } catch(e) {
-           next(ApiError.badRequest(e.message))
-       }
-   }
    async delete(req, res, next) {
        try {
            if (!req.params.id) {

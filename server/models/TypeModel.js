@@ -25,16 +25,6 @@ class TypeModel {
        return type
    }
 
-   async update(id, data) {
-       const type = await Type.findByPk(id)
-       if (!type) {
-           throw new Error('Тип не найден в БД')
-       }
-       const {name = type.name} = data
-       await type.update({name})
-       return type
-   }
-
    async delete(id) {
        const type = await Type.findByPk(id)
        if (!type) {

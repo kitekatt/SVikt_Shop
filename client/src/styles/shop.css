@@ -1,0 +1,5 @@
+@media(max-width: 480px){
+   .card__item{
+      align-items: center;
+   }
+}

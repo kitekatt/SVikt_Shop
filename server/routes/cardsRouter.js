@@ -18,12 +18,12 @@ router.get('/getone/:id([0-9]+)', cardsController.getOne)
 
 //создать товар (ТОЛЬКО ДЛЯ АДМИНИСТРАТОРА)
 router.post('/create',
-//  authMiddleware, adminMiddleware,
+ authMiddleware, adminMiddleware,
  cardsController.create)
 
 //удалить товар (ТОЛЬКО ДЛЯ АДМИНИСТРАТОРА)
 router.delete('/delete/:id([0-9]+)',
-//  authMiddleware, adminMiddleware,
+ authMiddleware, adminMiddleware,
  cardsController.delete)
 
 module.exports = router

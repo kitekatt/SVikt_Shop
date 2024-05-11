@@ -14,7 +14,6 @@ export const signup = async (email, password) => {
       return false
   }
 }
-
 export const login = async (email, password) => {
   try {
       const response = await guestInstance.post(`${process.env.REACT_APP_API_URL}user/login`, {email, password})
@@ -27,11 +26,9 @@ export const login = async (email, password) => {
       return false
   }
 }
-
 export const logout = () => {
   localStorage.removeItem('token')
 }
-
 export const check = async () => {
   let userToken, userData
   try {

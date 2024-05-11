@@ -9,7 +9,6 @@ const decode = (token) => {
         throw new Error('Неверная подпись токена')
     }
 }
-
 const auth = (req, res, next) => {
     if (req.method === 'OPTIONS') {
         next()

@@ -2,10 +2,9 @@ import React from 'react'
 import CatalogStore from '../store/CatalogStore.js'
 import UserStore from '../store/UserStore.js'
 
-
 const AppContext = React.createContext()
 
-// контекст, который будем передавать
+// передаваемый контекст
 const context = {
     user: new UserStore(),
     catalog: new CatalogStore(),
