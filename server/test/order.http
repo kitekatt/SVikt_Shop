@@ -1,0 +1,13 @@
+POST /api/order/user/create HTTP/1.1
+Host: localhost:5000
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzEwODU4MDA5LCJleHAiOjE3MTA5NDQ0MDl9.PO_QyQUYX3mBnFA72gFwcx8TRQvm8fPGjVltiZkOA6Y
+Cookie: basketId=s%3A29.NWqxZOHqeh1BQU8CNgh5tMozh57HIL0s5gL2BfnxbdI
+Content-type: application/json; charset=utf-8
+
+{
+    "name": "Сергей Иванов",
+    "email": "user@gmail.com",
+    "phone": "(999) 123-45-67",
+    "address": "Москва, улица Строителей, дом 123, кв.456",
+    "comment": "Комментарий к заказу"
+}

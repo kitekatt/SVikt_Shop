@@ -20,9 +20,8 @@ const publicRoutes = [
    { path: '/signup', Component: Signup },
    { path: '/contacts', Component: Contacts },
    { path: '*', Component: NotFound },
-]
 
-const adminRouters = [
+   //для админа
    { path: '/admin', Component: Admin },
    { path: '/admin/cards', Component: AdminCards },
 ]
@@ -34,7 +33,7 @@ const AppRouter = () => {
          {publicRoutes.map(({ path, Component }) =>
             <Route key={path} path={path} element={<Component />}></Route>
          )}
-         {user.isAdmin && adminRouters.map(({ path, Component }) =>
+         {user.isAdmin && publicRoutes.map(({ path, Component }) =>
             <Route key={path} path={path} element={<Component />}></Route>
          )}
       </Routes>
